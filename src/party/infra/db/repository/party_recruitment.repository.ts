@@ -56,8 +56,8 @@ export class PartyRecruitmentRepository implements IPartyRecruitmentRepository {
     return partyRecruitment;
   }
 
-  async update(id: number, positionId: number, recruitingCount: number) {
-    return await this.partyRecruitmentRepository.update(id, { positionId, recruitingCount });
+  async update(id: number, positionId: number, content: string, recruitingCount: number) {
+    return await this.partyRecruitmentRepository.update(id, { positionId, content, recruitingCount });
   }
 
   async updateStatusCompleted(id: number) {

@@ -6,6 +6,7 @@ export class UpdatePartyRecruitmentCommand implements ICommand {
     readonly partyId: number,
     readonly partyRecruitmentId: number,
     readonly positionId: number,
+    readonly content: string,
     readonly recruiting_count: number,
   ) {}
 }

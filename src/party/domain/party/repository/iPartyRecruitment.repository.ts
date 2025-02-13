@@ -12,7 +12,7 @@ export interface IPartyRecruitmentRepository {
   // bulkInsert: (partyId: number, recruitment: RecruitmentRequestDto[]) => Promise<PartyRecruitmentEntity[]>;
   findOne: (id: number) => Promise<PartyRecruitmentEntity>;
   findAllByPartyId: (partyId: number) => Promise<PartyRecruitmentEntity[]>;
-  update: (id: number, positionId: number, recruitingCount: number) => Promise<UpdateResult>;
+  update: (id: number, positionId: number, content: string, recruitingCount: number) => Promise<UpdateResult>;
   updateStatusCompleted: (id: number) => Promise<void>;
   updateRecruitedCount: (id: number, recruitedCount: number) => Promise<PartyRecruitmentEntity>;
   delete: (id: number) => Promise<void>;

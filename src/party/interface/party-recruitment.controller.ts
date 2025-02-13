@@ -86,13 +86,14 @@ export class PartyRecruitmentController {
     @Param() param: PartyRecruitmentsParamRequestDto,
     @Body() body: CreatePartyRecruitmentRequestDto,
   ) {
-    const { positionId, recruiting_count } = body;
+    const { positionId, content, recruiting_count } = body;
 
     const command = new UpdatePartyRecruitmentCommand(
       user.id,
       param.partyId,
       param.partyRecruitmentId,
       positionId,
+      content,
       recruiting_count,
     );
 

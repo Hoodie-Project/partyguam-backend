@@ -28,7 +28,7 @@ export class UpdatePartyRecruitmentHandler implements ICommandHandler<UpdatePart
   ) {}
 
   async execute(command: UpdatePartyRecruitmentCommand) {
-    const { userId, partyId, partyRecruitmentId, positionId, recruiting_count } = command;
+    const { userId, partyId, partyRecruitmentId, positionId, content, recruiting_count } = command;
 
     const findParty = await this.partyRepository.findOneById(partyId);
 
@@ -48,7 +48,7 @@ export class UpdatePartyRecruitmentHandler implements ICommandHandler<UpdatePart
       throw new ForbiddenException('파티 모집 수정 권한이 없습니다.', 'ACCESS_DENIED');
     }
 
-    await this.partyRecruitmentRepository.update(partyRecruitmentId, positionId, recruiting_count);
+    await this.partyRecruitmentRepository.update(partyRecruitmentId, positionId, content, recruiting_count);
 
     const result = await this.partyRecruitmentRepository.findOne(partyRecruitmentId);
 
